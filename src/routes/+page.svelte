@@ -1,17 +1,55 @@
 <script>
 	import { PUBLIC_APP_NAME } from '$env/static/public';
-	import { GET } from './api/owned_games/+server';
-	import { onMount } from 'svelte';
+	import { Container, Group, Stack } from '@svelteuidev/core';
+	import { Image } from '@svelteuidev/core';
 
-	onMount(async () => {
-		const res = await GET();
+	export let data;
+	export const getImageSrc = (/** @type {string} */ appId, /** @type {string} */ hash) =>
+		`http://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${hash}.jpg`;
 
-		const response = await fetch('https://dummyjson.com/posts');
-	});
+	const { owned, recentlyPlayed } = data;
+
+	console.log(recentlyPlayed.games);
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Welcome to Yo list</h1>
+<h2>Recently played: {recentlyPlayed['total_count']}</h2>
+<Container override={{ bc: 'AliceBlue' }}>
+	<Stack p={15}>
+		{#each recentlyPlayed['games'] as game}
+			<Group spacing={10}>
+				<Image
+					width={20}
+					height={20}
+					src={getImageSrc(game.appid, game['img_icon_url'])}
+					usePlaceholder
+				/>
+
+				{game.name} - {`${(game['playtime_2weeks'] / 60).toFixed()} hours in 2 weeks`} - {`${(
+					game['playtime_forever'] / 60
+				).toFixed()} hours total`}
+			</Group>
+		{/each}
+	</Stack>
+</Container>
+
+<h2>Owned games: {owned['game_count']}</h2>
+<Container override={{ bc: 'AliceBlue' }}>
+	<Stack p={15}>
+		{#each owned['games'] as game}
+			<Group spacing={10}>
+				<Image
+					width={20}
+					height={20}
+					src={getImageSrc(game.appid, game['img_icon_url'])}
+					usePlaceholder
+				/>
+
+				{game.name}
+			</Group>
+		{/each}
+	</Stack>
+</Container>
 
 <svelte:head>
 	<title>{PUBLIC_APP_NAME}</title>
