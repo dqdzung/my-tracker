@@ -3,7 +3,10 @@ import { getUrl } from '../service-helper';
 
 const fetchData = async (url: string) => {
 	const res = await fetch(url, {
-		mode: 'no-cors'
+		mode: 'no-cors',
+		headers: {
+			'Access-Control-Allow-Origin': '*'
+		}
 	});
 	if (!res.ok) {
 		throw error(500, 'Something went wrong...');
