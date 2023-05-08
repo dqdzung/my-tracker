@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { getUrl } from '../../../service-helper';
+import { getUrl } from '../service-helper';
 
 const fetchData = async (url: string) => {
 	const res = await fetch(url);

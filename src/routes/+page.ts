@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { PlayerService } from './api/player-service';
+import { PlayerService } from '../api/player-service';
+import type { ListOwned, ListRecentlyPlayed } from '../models/game';
 
 export const load = async () => {
 	const res = await Promise.allSettled([
@@ -8,7 +9,7 @@ export const load = async () => {
 	]);
 
 	return {
-		owned: (res[0] as any)?.value,
-		recentlyPlayed: (res[1] as any)?.value
+		owned: (res[0] as any)?.value as ListOwned,
+		recentlyPlayed: (res[1] as any)?.value as ListRecentlyPlayed
 	};
 };

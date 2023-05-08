@@ -1,55 +1,39 @@
-<script>
+<script lang="ts">
 	import { PUBLIC_APP_NAME } from '$env/static/public';
-	import { Container, Group, Stack } from '@svelteuidev/core';
-	import { Image } from '@svelteuidev/core';
+	import { Container, SvelteUIProvider, Text } from '@svelteuidev/core';
+	import { AppShell, Header } from '@svelteuidev/core';
+	import Main from '../components/main.svelte';
+	import { HEADER_HEIGHT } from '../constants';
 
 	export let data;
-	export const getImageSrc = (/** @type {string} */ appId, /** @type {string} */ hash) =>
-		`http://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${hash}.jpg`;
-
-	const { owned, recentlyPlayed } = data;
-
-	console.log(recentlyPlayed.games);
 </script>
 
-<h1>Welcome to Yo list</h1>
-<h2>Recently played: {recentlyPlayed['total_count']}</h2>
-<Container override={{ bc: 'AliceBlue' }}>
-	<Stack p={15}>
-		{#each recentlyPlayed['games'] as game}
-			<Group spacing={10}>
-				<Image
-					width={20}
-					height={20}
-					src={getImageSrc(game.appid, game['img_icon_url'])}
-					usePlaceholder
-				/>
+<SvelteUIProvider withNormalizeCSS withGlobalStyles>
+	<AppShell padding={0}>
+		<Header
+			slot="header"
+			height={HEADER_HEIGHT}
+			override={{
+				backgroundColor: 'black'
+			}}
+			fixed
+		>
+			<Container
+				override={{
+					height: '100%',
+					width: '100%',
+					color: 'white',
+					display: 'flex',
+					alignItems: 'center'
+				}}
+			>
+				<Text color="white" weight="bold" size={20}>My Game List</Text>
+			</Container>
+		</Header>
 
-				{game.name} - {`${(game['playtime_2weeks'] / 60).toFixed()} hours in 2 weeks`} - {`${(
-					game['playtime_forever'] / 60
-				).toFixed()} hours total`}
-			</Group>
-		{/each}
-	</Stack>
-</Container>
-
-<h2>Owned games: {owned['game_count']}</h2>
-<Container override={{ bc: 'AliceBlue' }}>
-	<Stack p={15}>
-		{#each owned['games'] as game}
-			<Group spacing={10}>
-				<Image
-					width={20}
-					height={20}
-					src={getImageSrc(game.appid, game['img_icon_url'])}
-					usePlaceholder
-				/>
-
-				{game.name}
-			</Group>
-		{/each}
-	</Stack>
-</Container>
+		<slot><Main {data} /></slot>
+	</AppShell>
+</SvelteUIProvider>
 
 <svelte:head>
 	<title>{PUBLIC_APP_NAME}</title>

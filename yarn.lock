@@ -285,6 +285,18 @@
   resolved "https://registry.yarnpkg.com/@svelteuidev/motion/-/motion-0.11.1.tgz#35292de21203719984c1e1c053035e2e6861b42c"
   integrity sha512-XyN/s43w9Y8JPmogy2iDbdzVsaawQYgM9amBbywGaKeSkcbeJ1Wwdh6LpeLJ2/oXYJ0iymQNSM+VxK5ICA9lyg==
 
+"@tabler/icons-svelte@^2.17.0":
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-svelte/-/icons-svelte-2.17.0.tgz#4fb603bfe0176796a0f935aab0e9ed6f027f43bb"
+  integrity sha512-q8ieK7bO4sxEs2JmMHIlI83fHQ42s0te6WxbxDeFdTUGVQWsdOcfwP94OEX1e9TT/0NmpfNleriCK9ndx+qp/w==
+  dependencies:
+    "@tabler/icons" "2.17.0"
+
+"@tabler/icons@2.17.0":
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.17.0.tgz#3b5ac3d41576894d3e18cd8014ba8ce33f3634be"
+  integrity sha512-UeJaylOGNRhQKyDlgZfrQ3UPSGlfVQuXcmCsTYeXioKKepibW6VZ3H36Lo1jvBTBkQD2e9m+k2NxwkztOTXwrA==
+
 "@types/cookie@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.5.1.tgz#b29aa1f91a59f35e29ff8f7cb24faf1a3a750554"
