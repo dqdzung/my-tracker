@@ -2,7 +2,9 @@ import { error } from '@sveltejs/kit';
 import { getUrl } from '../service-helper';
 
 const fetchData = async (url: string) => {
-	const res = await fetch(url);
+	const res = await fetch(url, {
+		mode: 'no-cors'
+	});
 	if (!res.ok) {
 		throw error(500, 'Something went wrong...');
 	}

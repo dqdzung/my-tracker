@@ -2,8 +2,9 @@
 	import { Container, Stack, Group, Image, ActionIcon } from '@svelteuidev/core';
 	import type { ListOwned, ListRecentlyPlayed } from '../models/game';
 	import { slide } from 'svelte/transition';
-	import { linear } from 'svelte/easing';
 	import { IconChevronDown, IconChevronUp } from '@tabler/icons-svelte';
+
+	export const prerender = true;
 
 	export let data: {
 		recentlyPlayed: ListRecentlyPlayed;
