@@ -4,8 +4,12 @@
 	import { AppShell, Header } from '@svelteuidev/core';
 	import Main from '../components/main.svelte';
 	import { HEADER_HEIGHT } from '../constants';
+	import type { ListOwned, ListRecentlyPlayed } from '../models/game';
 
-	export let data;
+	export let data: {
+		owned: ListOwned;
+		recentlyPlayed: ListRecentlyPlayed;
+	};
 </script>
 
 <SvelteUIProvider withNormalizeCSS withGlobalStyles>

@@ -34,6 +34,8 @@
 		"@svelteuidev/core": "^0.11.1",
 		"@svelteuidev/motion": "^0.11.1",
 		"@tabler/icons-svelte": "^2.17.0",
-		"cors": "^2.8.5"
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2"
 	}
 }
