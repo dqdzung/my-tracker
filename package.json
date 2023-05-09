@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-vercel": "^2.4.3",
 		"@svelteuidev/composables": "^0.11.1",
 		"@svelteuidev/core": "^0.11.1",
 		"@svelteuidev/motion": "^0.11.1",
