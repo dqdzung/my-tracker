@@ -9,7 +9,7 @@ export const load = async () => {
 	]);
 
 	return {
-		owned: (res[0] as any)?.value as ListOwned,
-		recentlyPlayed: (res[1] as any)?.value as ListRecentlyPlayed
+		owned: (res[0] as any)?.value?.response as ListOwned,
+		recentlyPlayed: (res[1] as any)?.value?.response as ListRecentlyPlayed
 	};
 };

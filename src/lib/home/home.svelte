@@ -5,8 +5,6 @@
 	import ListItem from '$lib/home/listItem.svelte';
 	import type { ListOwned, ListRecentlyPlayed } from '../../models/game';
 
-	export const prerender = true;
-
 	export let data: {
 		recentlyPlayed: ListRecentlyPlayed;
 		owned: ListOwned;
@@ -68,25 +66,5 @@
 <style>
 	h2 {
 		margin: 15px 0 0 0;
-	}
-
-	/* width */
-	::-webkit-scrollbar {
-		width: 5px;
-	}
-
-	/* Track */
-	::-webkit-scrollbar-track {
-		background: #f1f1f1;
-	}
-
-	/* Handle */
-	::-webkit-scrollbar-thumb {
-		background: #888;
-	}
-
-	/* Handle on hover */
-	::-webkit-scrollbar-thumb:hover {
-		background: #555;
 	}
 </style>

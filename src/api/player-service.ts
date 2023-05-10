@@ -1,14 +1,4 @@
-import { error } from '@sveltejs/kit';
-import { getUrl } from '../service-helper';
-
-const fetchData = async (url: string) => {
-	const res = await fetch(url);
-	if (!res.ok) {
-		throw error(500, 'Something went wrong...');
-	}
-	const data = await res.json();
-	return data.response;
-};
+import { fetchData, getUrl } from './service-helper';
 
 export const PlayerService = {
 	getOwnedGames: () =>

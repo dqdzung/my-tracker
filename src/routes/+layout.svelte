@@ -6,7 +6,7 @@
 </script>
 
 <SvelteUIProvider withNormalizeCSS withGlobalStyles>
-	<AppShell padding={0} style="{{ height: '100vh' }}}">
+	<AppShell padding={0}>
 		<Header
 			slot="header"
 			height={HEADER_HEIGHT}
@@ -21,8 +21,7 @@
 					width: '100%',
 					color: 'white',
 					display: 'flex',
-					alignItems: 'center',
-					marginBottom: HEADER_HEIGHT
+					alignItems: 'center'
 				}}
 			>
 				<Text color="white" weight="bold" size={20}>My Game List</Text>
@@ -47,6 +46,26 @@
 		background-color: #000000e6;
 		color: white;
 		height: calc(100vh - 45px);
-		overflow-y: scroll;
+		overflow-y: overlay;
+	}
+
+	/* width */
+	::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #888;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #555;
 	}
 </style>

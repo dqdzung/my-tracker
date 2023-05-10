@@ -27,7 +27,6 @@
 		padding: 10px;
 		transition: color 0.3s ease-in-out, box-shadow 0.35s ease-in-out;
 		text-decoration: none;
-		box-sizing: border-box;
 	}
 	a:hover {
 		box-shadow: inset 1000px 0 0 0 #54b3d6;
