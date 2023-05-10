@@ -14,7 +14,7 @@
 		usePlaceholder
 	/>
 
-	<a href="/">
+	<a href={`/game/${data.appid}`}>
 		<slot />
 	</a>
 </Group>
