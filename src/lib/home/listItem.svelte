@@ -6,7 +6,7 @@
 	export let data: Game;
 </script>
 
-<Group spacing={10} my={10}>
+<Group spacing={15} my={10}>
 	<Image
 		width={20}
 		height={20}
