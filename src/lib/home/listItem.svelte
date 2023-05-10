@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { getImageSrc } from '$lib/utils';
 	import { Group, Image } from '@svelteuidev/core';
+	import type { Game } from '../../models/game';
 
-	export let data: any;
+	export let data: Game;
 </script>
 
 <Group spacing={10} my={10}>
