@@ -2,7 +2,7 @@
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import { Container, SvelteUIProvider, Text } from '@svelteuidev/core';
 	import { AppShell, Header } from '@svelteuidev/core';
-	import Main from '../components/main.svelte';
+	import Home from '$lib/home/home.svelte';
 	import { HEADER_HEIGHT } from '../constants';
 	import type { ListOwned, ListRecentlyPlayed } from '../models/game';
 
@@ -35,7 +35,7 @@
 			</Container>
 		</Header>
 
-		<slot><Main {data} /></slot>
+		<slot><Home {data} /></slot>
 	</AppShell>
 </SvelteUIProvider>
 

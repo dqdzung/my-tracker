@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { Container, Stack, Group, Image, ActionIcon } from '@svelteuidev/core';
-	import type { ListOwned, ListRecentlyPlayed } from '../models/game';
 	import { slide } from 'svelte/transition';
 	import { IconChevronDown, IconChevronUp } from '@tabler/icons-svelte';
+	import ListItem from '$lib/home/listItem.svelte';
+	import type { ListOwned, ListRecentlyPlayed } from '../../models/game';
 
 	export const prerender = true;
 
@@ -13,18 +14,15 @@
 
 	const { recentlyPlayed, owned } = data;
 
-	const getImageSrc = (appId: number, hash: string) =>
-		`http://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${hash}.jpg`;
-
 	let openRecent: boolean = false;
 	let openOwned: boolean = false;
 </script>
 
 <div class="main-content">
 	<Container>
-		<Stack>
+		<Stack spacing={0}>
 			<Group style="align-items: end">
-				<h2>Recently played: {recentlyPlayed['total_count']}</h2>
+				<h2>Recently played: {recentlyPlayed?.['total_count'] || 0}</h2>
 				<ActionIcon on:click={() => (openRecent = !openRecent)}
 					>{#if !openRecent}
 						<IconChevronDown />
@@ -35,27 +33,20 @@
 			</Group>
 			{#if openRecent}
 				<div transition:slide>
-					{#each recentlyPlayed.games as game}
-						<Group spacing={10} my={15}>
-							<Image
-								width={20}
-								height={20}
-								src={getImageSrc(game.appid, game['img_icon_url'])}
-								usePlaceholder
-							/>
-
+					{#each recentlyPlayed?.games as game}
+						<ListItem data={game}>
 							{game.name} - {`${(game['playtime_2weeks'] / 60).toFixed()} hours in 2 weeks`} - {`${(
 								game['playtime_forever'] / 60
 							).toFixed()} hours total`}
-						</Group>
+						</ListItem>
 					{/each}
 				</div>
 			{/if}
 		</Stack>
 
-		<Stack>
+		<Stack spacing={0}>
 			<Group style="align-items: end">
-				<h2>Owned games: {owned['game_count']}</h2>
+				<h2>Owned games: {owned?.['game_count'] || 0}</h2>
 				<ActionIcon on:click={() => (openOwned = !openOwned)}
 					>{#if !openOwned}
 						<IconChevronDown />
@@ -68,16 +59,9 @@
 			{#if openOwned}
 				<div transition:slide>
 					{#each owned.games as game}
-						<Group spacing={10} my={15}>
-							<Image
-								width={20}
-								height={20}
-								src={getImageSrc(game.appid, game['img_icon_url'])}
-								usePlaceholder
-							/>
-
+						<ListItem data={game}>
 							{game.name}
-						</Group>
+						</ListItem>
 					{/each}
 				</div>
 			{/if}
