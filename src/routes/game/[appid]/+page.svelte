@@ -62,6 +62,7 @@
 
 	.background {
 		margin-top: 20px;
+		margin-bottom: 30px;
 		padding: 20px;
 		border-radius: 8px;
 		background-position: center;

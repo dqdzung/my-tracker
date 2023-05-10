@@ -28,6 +28,7 @@
 					<a
 						href="
           /"
+						style="text-decoration: none"
 					>
 						My Game List
 					</a>
