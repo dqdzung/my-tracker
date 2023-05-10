@@ -3,6 +3,7 @@
 	import { AppShell, Header } from '@svelteuidev/core';
 	import { HEADER_HEIGHT } from '../constants';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
+	import '../app.css';
 </script>
 
 <SvelteUIProvider withNormalizeCSS withGlobalStyles>
@@ -19,12 +20,18 @@
 				override={{
 					height: '100%',
 					width: '100%',
-					color: 'white',
 					display: 'flex',
 					alignItems: 'center'
 				}}
 			>
-				<Text color="white" weight="bold" size={20}>My Game List</Text>
+				<Text weight="bold" size={20}>
+					<a
+						href="
+          /"
+					>
+						My Game List
+					</a>
+				</Text>
 			</Container>
 		</Header>
 
@@ -44,7 +51,6 @@
 	.main-content {
 		margin-top: 45px;
 		background-color: #000000e6;
-		color: white;
 		height: calc(100vh - 45px);
 		overflow-y: overlay;
 	}

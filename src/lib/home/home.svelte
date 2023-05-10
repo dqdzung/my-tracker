@@ -12,8 +12,8 @@
 
 	const { recentlyPlayed, owned } = data;
 
-	let openRecent: boolean = false;
-	let openOwned: boolean = false;
+	let openRecent: boolean = true;
+	let openOwned: boolean = true;
 </script>
 
 <Stack spacing={0}>
