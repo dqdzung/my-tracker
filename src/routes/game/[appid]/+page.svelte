@@ -2,7 +2,7 @@
 	import { Group, Text, Stack, Image, Grid, Badge, Button } from '@svelteuidev/core';
 	import { IconArrowBack, IconBrandSteam, IconHome2 } from '@tabler/icons-svelte';
 	import InfoTable from '$lib/game/infoTable.svelte';
-	import { getStoreUrl } from '$api/service-helper.js';
+	import { getStoreUrl } from '$api/service-helper';
 
 	export let data;
 
