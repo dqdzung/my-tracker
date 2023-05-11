@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { PlayerService } from '$api/player-service.ts';
+import { PlayerService } from '$api/player-service';
 import type { ListOwned, ListRecentlyPlayed } from '$models/game';
 
 export const load = async () => {

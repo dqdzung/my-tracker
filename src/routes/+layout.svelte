@@ -7,7 +7,8 @@
 	import en from 'javascript-time-ago/locale/en';
 	import '$root/app.css';
 
-	TimeAgo.addDefaultLocale(en);
+	TimeAgo.addLocale(en);
+	TimeAgo.setDefaultLocale(en.locale);
 </script>
 
 <SvelteUIProvider withNormalizeCSS withGlobalStyles>

@@ -10,6 +10,8 @@ const config = {
 		alias: {
 			$root: 'src',
 			'$root/*': 'src/*',
+			$lib: 'src/lib',
+			'$lib/*': 'src/lib/*',
 			$api: 'src/api',
 			'$api/*': 'src/api/*',
 			$models: 'src/models',

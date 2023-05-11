@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Home from '$lib/home/home.svelte';
+	import Home from '$lib/home/Home.svelte';
 	import type { ListOwned, ListRecentlyPlayed } from '$models/game';
 
 	export let data: {
