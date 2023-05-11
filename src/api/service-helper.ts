@@ -1,5 +1,5 @@
 import { PUBLIC_STEAM_API_HEADER, PUBLIC_STEAM_API_KEY } from '$env/static/public';
-import { STEAM_API_METHOD, type SteamApiInterface, type SteamApiMethod } from '../constants';
+import { STEAM_API_METHOD, type SteamApiInterface, type SteamApiMethod } from '$root/constants';
 import { error } from '@sveltejs/kit';
 
 const myID = '76561198081886399'; // FOR TESTING ONLY
