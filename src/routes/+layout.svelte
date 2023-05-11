@@ -1,9 +1,13 @@
 <script>
 	import { Container, SvelteUIProvider, Text } from '@svelteuidev/core';
 	import { AppShell, Header } from '@svelteuidev/core';
-	import { HEADER_HEIGHT } from '../constants';
+	import { HEADER_HEIGHT } from '$root/constants';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
-	import '../app.css';
+	import TimeAgo from 'javascript-time-ago';
+	import en from 'javascript-time-ago/locale/en';
+	import '$root/app.css';
+
+	TimeAgo.addDefaultLocale(en);
 </script>
 
 <SvelteUIProvider withNormalizeCSS withGlobalStyles>
@@ -19,9 +23,9 @@
 			<Container
 				override={{
 					height: '100%',
-					width: '100%',
 					display: 'flex',
-					alignItems: 'center'
+					alignItems: 'center',
+					maxWidth: '1200px'
 				}}
 			>
 				<Text weight="bold" size={20}>
@@ -37,7 +41,11 @@
 		</Header>
 
 		<div class="main-content">
-			<Container>
+			<Container
+				override={{
+					maxWidth: '1200px'
+				}}
+			>
 				<slot />
 			</Container>
 		</div>

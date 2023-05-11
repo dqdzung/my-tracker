@@ -39,7 +39,8 @@
 		"@tabler/icons-svelte": "^2.17.0",
 		"cors": "^2.8.5",
 		"dotenv": "^16.0.3",
-		"express": "^4.18.2"
+		"express": "^4.18.2",
+		"javascript-time-ago": "^2.5.9"
 	},
 	"nodemonConfig": {
 		"ext": "js,ts,svelte"

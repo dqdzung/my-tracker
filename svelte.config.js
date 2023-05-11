@@ -6,7 +6,15 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			$root: 'src',
+			'$root/*': 'src/*',
+			$api: 'src/api',
+			'$api/*': 'src/api/*',
+			$models: 'src/models',
+			'$models/*': 'src/models/*'
+		}
 	}
 };
 
