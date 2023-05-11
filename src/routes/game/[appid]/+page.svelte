@@ -66,7 +66,7 @@
 		</Group>
 	</div>
 
-	<h2>About the game</h2>
+	<h2>About</h2>
 	<p>
 		{@html data['about_the_game']}
 	</p>
