@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Group, Image } from '@svelteuidev/core';
-	import { getImageSrc } from '$root/api/service-helper';
-	import type { Game } from '$models/game';
+	import { getImageSrc } from '../../api/service-helper';
+	import type { Game } from '../../models/game';
 
 	export let data: Game;
 </script>

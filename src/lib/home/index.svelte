@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Container, Stack, Group, Image, ActionIcon } from '@svelteuidev/core';
+	import { Stack, Group, ActionIcon } from '@svelteuidev/core';
 	import { slide } from 'svelte/transition';
 	import { IconChevronDown, IconChevronUp } from '@tabler/icons-svelte';
-	import ListItem from '$root/lib/home/ListItem.svelte';
-	import type { ListOwned, ListRecentlyPlayed } from '$models/game';
+	import ListItem from './listItem.svelte';
+	import type { ListOwned, ListRecentlyPlayed } from '../../models/game';
 
 	export let data: {
 		recentlyPlayed: ListRecentlyPlayed;

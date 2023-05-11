@@ -1,8 +1,8 @@
 <script>
+	import GameInfo from '$lib/game/gameInfo.svelte';
 	import { Group, Text, Stack, Image, Grid, Badge, Button } from '@svelteuidev/core';
 	import { IconArrowBack, IconBrandSteam, IconHome2 } from '@tabler/icons-svelte';
-	import InfoTable from '$lib/game/InfoTable.svelte';
-	import { getStoreUrl } from '$api/service-helper';
+	import { getStoreUrl } from '../../../api/service-helper';
 
 	export let data;
 
@@ -23,7 +23,7 @@
 			<Grid>
 				<Grid.Col xs={12} md={7}>
 					<Stack style="flex-grow: 1">
-						<InfoTable {data} />
+						<GameInfo {data} />
 
 						<Group spacing={7}>
 							<Button

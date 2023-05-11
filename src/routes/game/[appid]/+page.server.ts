@@ -1,4 +1,4 @@
-import { fetchData, getGameInfoUrl } from '$api/service-helper';
+import { fetchData, getGameInfoUrl } from '../../../api/service-helper';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params }) => {

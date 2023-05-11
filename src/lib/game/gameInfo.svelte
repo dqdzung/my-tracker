@@ -7,11 +7,13 @@
 
 	export let data: any;
 
-	const releaseDate = new Date(data['release_date'].date);
+	const releaseDate = new Date(data['release_date']?.date);
 	const comingSoon = data['release_date']['coming_soon'];
 	const currentYearTime = new Date().getTime();
 	const releaseYearTime = releaseDate.getTime();
 	const relativeTimeAgo = timeAgo.format(Date.now() - (currentYearTime - releaseYearTime), 'round');
+
+	console.log(data);
 
 	$: platforms = Object.entries(data.platforms)
 		.map(([key, value]) => value && key)
@@ -56,7 +58,7 @@
 		<tr>
 			<td>Release Date</td>
 			<td
-				>{comingSoon ? 'Coming Soon' : data['release_date'].date}
+				>{comingSoon ? 'Coming Soon' : data['release_date']?.date}
 				<span style="font-style: italic; color: rgb(150, 150, 150);">
 					{!comingSoon ? `(${relativeTimeAgo})` : ''}
 				</span>

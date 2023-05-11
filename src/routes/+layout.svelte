@@ -1,11 +1,11 @@
 <script>
 	import { Container, SvelteUIProvider, Text } from '@svelteuidev/core';
 	import { AppShell, Header } from '@svelteuidev/core';
-	import { HEADER_HEIGHT } from '$root/constants';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import TimeAgo from 'javascript-time-ago';
 	import en from 'javascript-time-ago/locale/en';
-	import '$root/app.css';
+	import '../app.css';
+	import { HEADER_HEIGHT } from '../constants';
 
 	TimeAgo.addLocale(en);
 	TimeAgo.setDefaultLocale(en.locale);

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { PlayerService } from '$api/player-service';
-import type { ListOwned, ListRecentlyPlayed } from '$models/game';
+
+import { PlayerService } from "../api/player-service";
+import type { ListOwned, ListRecentlyPlayed } from "../models/game";
 
 export const load = async () => {
   const res = await Promise.allSettled([

@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+// import { resolve } from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -7,16 +8,16 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
-		alias: {
-			$root: 'src',
-			'$root/*': 'src/*',
-			$lib: 'src/lib',
-			'$lib/*': 'src/lib/*',
-			$api: 'src/api',
-			'$api/*': 'src/api/*',
-			$models: 'src/models',
-			'$models/*': 'src/models/*'
-		}
+		// alias: {
+		// 	$root: resolve('src'),
+		// 	'$root/*': resolve('src/*'),
+		// 	$lib: resolve('src/lib'),
+		// 	'$lib/*': resolve('src/lib/*'),
+		// 	$api: resolve('src/api'),
+		// 	'$api/*': resolve('src/api/*'),
+		// 	$models: resolve('src/models'),
+		// 	'$models/*': resolve('src/models/*')
+		// }
 	}
 };
 
