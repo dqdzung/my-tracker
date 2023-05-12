@@ -7,7 +7,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter()
 		// alias: {
 		// 	$root: resolve('src'),
 		// 	'$root/*': resolve('src/*'),
@@ -17,6 +17,12 @@ const config = {
 		// 	'$api/*': resolve('src/api/*'),
 		// 	$models: resolve('src/models'),
 		// 	'$models/*': resolve('src/models/*')
+		// }
+
+		// vite: {
+		// 	optimizedDeps: {
+		// 		include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep']
+		// 	}
 		// }
 	}
 };

@@ -4,8 +4,8 @@
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import TimeAgo from 'javascript-time-ago';
 	import en from 'javascript-time-ago/locale/en';
-	import '../app.css';
 	import { HEADER_HEIGHT } from '../constants';
+	import '../app.css';
 
 	TimeAgo.addLocale(en);
 	TimeAgo.setDefaultLocale(en.locale);

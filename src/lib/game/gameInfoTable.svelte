@@ -5,15 +5,13 @@
 
 	const timeAgo = new TimeAgo('en-US');
 
-	export let data: any;
+	export let data: any; // GameDetail model
 
 	const releaseDate = new Date(data['release_date']?.date);
 	const comingSoon = data['release_date']['coming_soon'];
 	const currentYearTime = new Date().getTime();
 	const releaseYearTime = releaseDate.getTime();
 	const relativeTimeAgo = timeAgo.format(Date.now() - (currentYearTime - releaseYearTime), 'round');
-
-	console.log(data);
 
 	$: platforms = Object.entries(data.platforms)
 		.map(([key, value]) => value && key)
