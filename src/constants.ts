@@ -21,3 +21,5 @@ export const STEAM_API_METHOD: {
 export type SteamApiMethod = PlayerServiceMethod;
 
 export const HEADER_HEIGHT = '45px';
+
+export const FOOTER_HEIGHT = '20px'

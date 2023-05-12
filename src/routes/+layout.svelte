@@ -1,10 +1,10 @@
 <script>
 	import { Container, SvelteUIProvider, Text } from '@svelteuidev/core';
-	import { AppShell, Header } from '@svelteuidev/core';
+	import { AppShell, Header, Footer } from '@svelteuidev/core';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import TimeAgo from 'javascript-time-ago';
 	import en from 'javascript-time-ago/locale/en';
-	import { HEADER_HEIGHT } from '../constants';
+	import { FOOTER_HEIGHT, HEADER_HEIGHT } from '../constants';
 	import '../app.css';
 
 	TimeAgo.addLocale(en);
@@ -44,12 +44,24 @@
 		<div class="main-content">
 			<Container
 				override={{
-					maxWidth: '1200px'
+					maxWidth: '1200px',
+					mb: '20px'
 				}}
 			>
 				<slot />
 			</Container>
 		</div>
+
+		<!-- <Footer
+			height="30px"
+			slot="footer"
+			override={{
+				backgroundColor: 'black'
+			}}
+			fixed={false}
+		>
+			<div style="padding: 5px">dmm</div>
+		</Footer> -->
 	</AppShell>
 </SvelteUIProvider>
 
