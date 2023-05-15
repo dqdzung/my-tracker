@@ -74,13 +74,15 @@
 					</Splide>
 				</div>
 
-				<div>
-					<h4 style="margin: 10px 0;">Video</h4>
-					<Center>
-						<!-- svelte-ignore a11y-media-has-caption -->
-						<video src={data.movies[0].webm.max} height="auto" width="100%" controls />
-					</Center>
-				</div>
+				{#if data.movies?.length}
+					<div>
+						<h4 style="margin: 10px 0;">Video</h4>
+						<Center>
+							<!-- svelte-ignore a11y-media-has-caption -->
+							<video src={data.movies?.[0]?.webm?.max} height="auto" width="100%" controls />
+						</Center>
+					</div>
+				{/if}
 			</Stack>
 		</Tabs.Tab>
 	</Tabs>

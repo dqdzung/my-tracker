@@ -1,11 +1,12 @@
 <script>
-	import { Container, SvelteUIProvider, Text } from '@svelteuidev/core';
+	import { Container, Group, SvelteUIProvider, Text } from '@svelteuidev/core';
 	import { AppShell, Header, Footer } from '@svelteuidev/core';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import TimeAgo from 'javascript-time-ago';
 	import en from 'javascript-time-ago/locale/en';
-	import { FOOTER_HEIGHT, HEADER_HEIGHT } from '../constants';
+	import { HEADER_HEIGHT } from '../constants';
 	import '../app.css';
+	import { IconBrandGithubFilled } from '@tabler/icons-svelte';
 
 	TimeAgo.addLocale(en);
 	TimeAgo.setDefaultLocale(en.locale);
@@ -50,31 +51,43 @@
 			>
 				<slot />
 			</Container>
-		</div>
 
-		<!-- <Footer
-			height="30px"
-			slot="footer"
-			override={{
-				backgroundColor: 'black'
-			}}
-			fixed={false}
-		>
-			<div style="padding: 5px">dmm</div>
-		</Footer> -->
-	</AppShell>
+			<div class="footer">
+				<a
+					href="https://github.com/dqdzung"
+					target="_blank"
+					referrerpolicy="no-referrer"
+					style="text-decoration: none"
+				>
+					<Group spacing={5}>
+						<IconBrandGithubFilled size={20} />
+						@dqdzung
+					</Group>
+				</a>
+			</div>
+		</div></AppShell
+	>
 </SvelteUIProvider>
 
 <svelte:head>
 	<title>{PUBLIC_APP_NAME}</title>
 </svelte:head>
 
-<style>
+<style lang="scss">
 	.main-content {
 		margin-top: 45px;
 		background-color: #000000e6;
 		height: calc(100vh - 45px);
 		overflow-y: overlay;
+
+		.footer {
+			position: fixed;
+			bottom: 0;
+			background: black;
+			width: 100%;
+			padding: 5px;
+			font-size: 12px;
+		}
 	}
 
 	/* width */
