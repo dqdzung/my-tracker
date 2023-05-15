@@ -1,16 +1,20 @@
-<script>
-	import { Container, Group, SvelteUIProvider, Text } from '@svelteuidev/core';
+<script lang="ts">
+	import { ActionIcon, Container, Group, SvelteUIProvider, Text } from '@svelteuidev/core';
 	import { AppShell, Header, Footer } from '@svelteuidev/core';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import TimeAgo from 'javascript-time-ago';
 	import en from 'javascript-time-ago/locale/en';
 	import { HEADER_HEIGHT } from '../constants';
 	import '../app.css';
-	import { IconBrandGithubFilled } from '@tabler/icons-svelte';
+	import { IconBrandGithubFilled, IconMenu2 } from '@tabler/icons-svelte';
 
 	TimeAgo.addLocale(en);
 	TimeAgo.setDefaultLocale(en.locale);
+
+	let screenSize: number;
 </script>
+
+<svelte:window bind:innerWidth={screenSize} />
 
 <SvelteUIProvider withNormalizeCSS withGlobalStyles>
 	<AppShell padding={0}>
@@ -27,7 +31,8 @@
 					height: '100%',
 					display: 'flex',
 					alignItems: 'center',
-					maxWidth: '1200px'
+					maxWidth: '1200px',
+					justifyContent: 'space-between'
 				}}
 			>
 				<Text weight="bold" size={20}>
@@ -39,6 +44,10 @@
 						My Game List
 					</a>
 				</Text>
+
+				<ActionIcon variant="transparent">
+					<IconMenu2 color="white" />
+				</ActionIcon>
 			</Container>
 		</Header>
 
@@ -61,7 +70,7 @@
 				>
 					<Group spacing={5}>
 						<IconBrandGithubFilled size={20} />
-						@dqdzung
+						@hihi_
 					</Group>
 				</a>
 			</div>

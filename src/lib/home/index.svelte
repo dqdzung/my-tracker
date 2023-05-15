@@ -4,6 +4,7 @@
 	import { IconChevronDown, IconChevronUp } from '@tabler/icons-svelte';
 	import ListItem from './listItem.svelte';
 	import type { ListOwned, ListRecentlyPlayed } from '../../models/game';
+	import ChevronActionIcon from './chevronActionIcon.svelte';
 
 	export let data: {
 		recentlyPlayed: ListRecentlyPlayed;
@@ -19,13 +20,7 @@
 <Stack spacing={0}>
 	<Group style="align-items: end">
 		<h2>Recently played: {recentlyPlayed?.['total_count'] || 0}</h2>
-		<ActionIcon on:click={() => (openRecent = !openRecent)}
-			>{#if !openRecent}
-				<IconChevronDown />
-			{:else}
-				<IconChevronUp />
-			{/if}</ActionIcon
-		>
+		<ChevronActionIcon open={openRecent} onClick={() => (openRecent = !openRecent)} />
 	</Group>
 	{#if openRecent}
 		<div transition:slide>
@@ -43,13 +38,7 @@
 <Stack spacing={0}>
 	<Group style="align-items: end">
 		<h2>Owned games: {owned?.['game_count'] || 0}</h2>
-		<ActionIcon on:click={() => (openOwned = !openOwned)}
-			>{#if !openOwned}
-				<IconChevronDown />
-			{:else}
-				<IconChevronUp />
-			{/if}</ActionIcon
-		>
+		<ChevronActionIcon open={openOwned} onClick={() => (openOwned = !openOwned)} />
 	</Group>
 
 	{#if openOwned}
