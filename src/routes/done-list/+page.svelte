@@ -8,8 +8,11 @@
 
 <h2>Done List</h2>
 
+<div>{list?.[0]?.name}</div>
+<div>{list?.[0]?.data}</div>
+
 <style>
-	h2 {
+	* {
 		color: white;
 	}
 </style>
