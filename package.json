@@ -34,6 +34,7 @@
 	"type": "module",
 	"dependencies": {
 		"@splidejs/svelte-splide": "^0.2.9",
+		"@supabase/supabase-js": "^2.22.0",
 		"@sveltejs/adapter-vercel": "^2.4.3",
 		"@svelteuidev/composables": "^0.11.1",
 		"@svelteuidev/core": "^0.11.1",

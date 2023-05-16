@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { Stack, Group, ActionIcon } from '@svelteuidev/core';
+	import { Stack, Group } from '@svelteuidev/core';
 	import { slide } from 'svelte/transition';
-	import { IconChevronDown, IconChevronUp } from '@tabler/icons-svelte';
 	import ListItem from './listItem.svelte';
 	import type { ListOwned, ListRecentlyPlayed } from '../../models/game';
 	import ChevronActionIcon from './chevronActionIcon.svelte';
@@ -54,6 +53,7 @@
 
 <style>
 	h2 {
+		color: white;
 		margin: 15px 0 0 0;
 	}
 </style>

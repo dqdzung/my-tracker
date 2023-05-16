@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { ActionIcon, Container, Group, SvelteUIProvider, Text } from '@svelteuidev/core';
-	import { AppShell, Header, Footer } from '@svelteuidev/core';
+	import { ActionIcon, Container, Group, Menu, SvelteUIProvider, Text } from '@svelteuidev/core';
+	import { AppShell, Header } from '@svelteuidev/core';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import TimeAgo from 'javascript-time-ago';
 	import en from 'javascript-time-ago/locale/en';
@@ -36,18 +36,19 @@
 				}}
 			>
 				<Text weight="bold" size={20}>
-					<a
-						href="
-          /"
-						style="text-decoration: none"
-					>
-						My Game List
-					</a>
+					<a href="/"> My Game List </a>
 				</Text>
 
-				<ActionIcon variant="transparent">
+				<!-- <ActionIcon variant="transparent">
 					<IconMenu2 color="white" />
-				</ActionIcon>
+				</ActionIcon> -->
+
+				<Menu>
+					<ActionIcon slot="control" variant="transparent">
+						<IconMenu2 color="white" />
+					</ActionIcon>
+					<Menu.Item><a href="/done-list" style="color: black">Done List</a></Menu.Item>
+				</Menu>
 			</Container>
 		</Header>
 
@@ -62,12 +63,7 @@
 			</Container>
 
 			<div class="footer">
-				<a
-					href="https://github.com/dqdzung"
-					target="_blank"
-					referrerpolicy="no-referrer"
-					style="text-decoration: none"
-				>
+				<a href="https://github.com/dqdzung" target="_blank" referrerpolicy="no-referrer">
 					<Group spacing={5}>
 						<IconBrandGithubFilled size={20} />
 						@hihi_
@@ -83,6 +79,10 @@
 </svelte:head>
 
 <style lang="scss">
+	a {
+		color: white;
+		text-decoration: none;
+	}
 	.main-content {
 		margin-top: 45px;
 		background-color: #000000e6;

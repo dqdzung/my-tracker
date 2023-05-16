@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { Group, Grid, Tabs, Center, Image, Stack } from '@svelteuidev/core';
-	import { IconArrowBack, IconInfoCircleFilled, IconPhoto, IconSettings } from '@tabler/icons-svelte';
+	import {
+		IconArrowBack,
+		IconInfoCircleFilled,
+		IconPhoto,
+		IconSettings
+	} from '@tabler/icons-svelte';
 	import GameInfoLeft from '$lib/game/gameInfoLeft.svelte';
 	import GameInfoRight from '$lib/game/gameInfoRight.svelte';
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
@@ -104,6 +109,10 @@
 </div>
 
 <style lang="scss">
+	* {
+		color: white;
+	}
+
 	a {
 		text-decoration: none;
 	}
