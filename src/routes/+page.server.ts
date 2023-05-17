@@ -2,8 +2,9 @@
 
 import { PlayerService } from "../api/player-service";
 import type { ListOwned, ListRecentlyPlayed } from "../models/game";
+import type { PageServerLoad } from "./$types";
 
-export const load = async () => {
+export const load = (async () => {
   const res = await Promise.allSettled([
     PlayerService.getOwnedGames(),
     PlayerService.getRecentlyPlayedGames()
@@ -13,4 +14,6 @@ export const load = async () => {
     owned: (res[0] as any)?.value?.response as ListOwned,
     recentlyPlayed: (res[1] as any)?.value?.response as ListRecentlyPlayed
   };
-};
+}) satisfies PageServerLoad;
+
+;

@@ -1,7 +1,21 @@
 <script lang="ts">
-	import { Group, Grid, Tabs, Center, Image, Stack } from '@svelteuidev/core';
+	import {
+		Group,
+		Grid,
+		Tabs,
+		Center,
+		Image,
+		Stack,
+		Progress,
+		Card,
+		Text,
+		ActionIcon,
+		Tooltip,
+		Box
+	} from '@svelteuidev/core';
 	import {
 		IconArrowBack,
+		IconChevronDown,
 		IconInfoCircleFilled,
 		IconPhoto,
 		IconSettings
@@ -10,8 +24,11 @@
 	import GameInfoRight from '$lib/game/gameInfoRight.svelte';
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import '@splidejs/svelte-splide/css';
+	import { calculateCheevoCompletion } from './utils';
 
-	export let data;
+	export let data: { appData: any; achievements: any; playerStats: any };
+
+	const { appData, achievements } = data;
 
 	let activeTab = 0;
 
@@ -19,6 +36,10 @@
 		const { index } = e.detail;
 		activeTab = index;
 	};
+
+	$: cheevoCompletion = calculateCheevoCompletion(achievements);
+
+	console.log(achievements);
 </script>
 
 <div style="margin-bottom: 55px;">
@@ -31,17 +52,17 @@
 
 	<div
 		class="background"
-		style={`background-image: url(${data.background}); background-size: cover`}
+		style={`background-image: url(${appData.background}); background-size: cover`}
 	>
-		<h2>{data.name}</h2>
+		<h2>{appData.name}</h2>
 		<Group position="apart" align="flex-start" mt={20}>
 			<Grid>
 				<Grid.Col xs={12} md={7}>
-					<GameInfoLeft {data} />
+					<GameInfoLeft data={appData} />
 				</Grid.Col>
 
 				<Grid.Col xs={12} md={5}>
-					<GameInfoRight {data} />
+					<GameInfoRight data={appData} />
 				</Grid.Col>
 			</Grid>
 		</Group>
@@ -60,28 +81,54 @@
 		}}
 	>
 		<Tabs.Tab
-			label="About"
+			label="User stats"
 			tabindex={0}
+			tabKey="userStat"
+			icon={IconInfoCircleFilled}
+			override={{ color: 'white' }}
+		>
+			<Card shadow="sm" padding="lg" radius="md" override={{ background: ' black ' }}>
+				<h3 style="margin: 0 0 15px 0;">Achievements</h3>
+
+				<Text color="white" mb={10}>
+					You've unlocked {cheevoCompletion.achieved}/{achievements.length} ({cheevoCompletion.percentage}%)
+				</Text>
+
+				<Progress value={cheevoCompletion.percentage} size="xl" radius="xl" />
+
+				<Box mt={5} style="text-align: center">
+					<Tooltip label="View all achievements">
+						<ActionIcon variant="transparent">
+							<IconChevronDown color="white" />
+						</ActionIcon>
+					</Tooltip>
+				</Box>
+			</Card>
+		</Tabs.Tab>
+
+		<Tabs.Tab
+			label="About"
+			tabindex={1}
 			tabKey="about"
 			icon={IconInfoCircleFilled}
 			override={{ color: 'white' }}
 		>
 			<p>
-				{@html data['about_the_game']}
+				{@html appData['about_the_game']}
 			</p>
 		</Tabs.Tab>
 
-		<Tabs.Tab label="System Requirements" tabindex={1} tabKey="requirements" icon={IconSettings}>
+		<Tabs.Tab label="System Requirements" tabindex={2} tabKey="requirements" icon={IconSettings}>
 			<p>
-				{@html data['pc_requirements'].minimum || ''}
+				{@html appData['pc_requirements'].minimum || ''}
 			</p>
 
 			<p>
-				{@html data['pc_requirements'].recommended || ''}
+				{@html appData['pc_requirements'].recommended || ''}
 			</p>
 		</Tabs.Tab>
 
-		<Tabs.Tab label="Gallery" tabindex={2} tabKey="gallery" icon={IconPhoto}>
+		<Tabs.Tab label="Gallery" tabindex={3} tabKey="gallery" icon={IconPhoto}>
 			<Stack spacing={20}>
 				<div>
 					<h4 style="margin: 10px 0;">Screenshots</h4>
@@ -96,7 +143,7 @@
 							snap: true
 						}}
 					>
-						{#each data.screenshots as { path_full, id } (id)}
+						{#each appData.screenshots as { path_full, id } (id)}
 							<SplideSlide>
 								<Image src={path_full} />
 							</SplideSlide>
@@ -104,14 +151,14 @@
 					</Splide>
 				</div>
 
-				{#if data.movies?.length}
+				{#if appData.movies?.length}
 					<div>
 						<h4 style="margin: 10px 0;">Video</h4>
 						<Center>
 							<!-- svelte-ignore a11y-media-has-caption -->
 							<video
 								autoplay={activeTab === 2}
-								src={data.movies?.[0]?.webm?.max}
+								src={appData.movies?.[0]?.webm?.max}
 								height="auto"
 								width="100%"
 								controls

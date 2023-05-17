@@ -3,7 +3,7 @@
 
 	const { list } = data;
 
-	console.log(list);
+	// console.log(list);
 </script>
 
 <h2>Done List</h2>

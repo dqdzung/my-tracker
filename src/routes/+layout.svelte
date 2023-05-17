@@ -8,14 +8,14 @@
 		SvelteUIProvider,
 		Text
 	} from '@svelteuidev/core';
-	import { AppShell, Header } from '@svelteuidev/core';
+	import { AppShell } from '@svelteuidev/core';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import TimeAgo from 'javascript-time-ago';
 	import en from 'javascript-time-ago/locale/en';
-	import { HEADER_HEIGHT } from '../constants';
-	import '../app.css';
 	import { IconBrandGithubFilled, IconMenu2 } from '@tabler/icons-svelte';
 	import NavLinks from '$lib/navbar/navLinks.svelte';
+	import Navbar from '$lib/navbar/navBar.svelte';
+	import '../app.css';
 
 	TimeAgo.addLocale(en);
 	TimeAgo.setDefaultLocale(en.locale);
@@ -27,30 +27,7 @@
 
 <SvelteUIProvider withNormalizeCSS withGlobalStyles>
 	<AppShell padding={0}>
-		<Header
-			slot="header"
-			height={HEADER_HEIGHT}
-			override={{
-				backgroundColor: 'black'
-			}}
-			fixed
-		>
-			<Container
-				override={{
-					height: '100%',
-					display: 'flex',
-					alignItems: 'center',
-					maxWidth: '1200px',
-					justifyContent: screenSize <= 900 ? 'space-between' : 'normal'
-				}}
-			>
-				<Text weight="bold" size={20}>
-					<a href="/"> My Game List </a>
-				</Text>
-
-				<NavLinks />
-			</Container>
-		</Header>
+		<Navbar />
 
 		<div class="main-content">
 			<Container
@@ -70,8 +47,8 @@
 					</Group>
 				</a>
 			</div>
-		</div></AppShell
-	>
+		</div>
+	</AppShell>
 </SvelteUIProvider>
 
 <svelte:head>

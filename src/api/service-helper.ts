@@ -36,3 +36,9 @@ export const getStoreUrl = (appId: number | string) =>
   `https://store.steampowered.com/app/${appId}`
 
 export const getGameInfoUrl = (appId: string | number) => `http://store.steampowered.com/api/appdetails?appids=${appId}&l=english`
+
+export const getPlayerGameCheevolUrl = (appId: string | number) =>
+  `https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1?key=${PUBLIC_STEAM_API_KEY}&steamid=${myID}&appid=${appId}&l=english`
+
+export const getPlayerStatUrl = (appId: string | number) =>
+  `https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v2?key=${PUBLIC_STEAM_API_KEY}&steamid=${myID}&appid=${appId}&l=english`
