@@ -16,7 +16,6 @@
 	let activeTab = 0;
 
 	const onTabChange = (e: CustomEvent) => {
-		console.log(e);
 		const { index } = e.detail;
 		activeTab = index;
 	};
@@ -48,8 +47,25 @@
 		</Group>
 	</div>
 
-	<Tabs bind:active={activeTab} on:change={onTabChange}>
-		<Tabs.Tab label="About" tabindex={0} tabKey="about" icon={IconInfoCircleFilled}>
+	<Tabs
+		bind:active={activeTab}
+		on:change={onTabChange}
+		override={{
+			'& .svelteui-Tab-root': {
+				color: 'white'
+			},
+			'& .active': {
+				color: 'rgb(28, 126, 214)'
+			}
+		}}
+	>
+		<Tabs.Tab
+			label="About"
+			tabindex={0}
+			tabKey="about"
+			icon={IconInfoCircleFilled}
+			override={{ color: 'white' }}
+		>
 			<p>
 				{@html data['about_the_game']}
 			</p>
