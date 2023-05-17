@@ -1,5 +1,13 @@
 <script lang="ts">
-	import { ActionIcon, Container, Group, Menu, SvelteUIProvider, Text } from '@svelteuidev/core';
+	import {
+		ActionIcon,
+		Button,
+		Container,
+		Group,
+		Menu,
+		SvelteUIProvider,
+		Text
+	} from '@svelteuidev/core';
 	import { AppShell, Header } from '@svelteuidev/core';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import TimeAgo from 'javascript-time-ago';
@@ -7,6 +15,7 @@
 	import { HEADER_HEIGHT } from '../constants';
 	import '../app.css';
 	import { IconBrandGithubFilled, IconMenu2 } from '@tabler/icons-svelte';
+	import NavLinks from '$lib/navbar/navLinks.svelte';
 
 	TimeAgo.addLocale(en);
 	TimeAgo.setDefaultLocale(en.locale);
@@ -32,23 +41,14 @@
 					display: 'flex',
 					alignItems: 'center',
 					maxWidth: '1200px',
-					justifyContent: 'space-between'
+					justifyContent: screenSize <= 900 ? 'space-between' : 'normal'
 				}}
 			>
 				<Text weight="bold" size={20}>
 					<a href="/"> My Game List </a>
 				</Text>
 
-				<!-- <ActionIcon variant="transparent">
-					<IconMenu2 color="white" />
-				</ActionIcon> -->
-
-				<Menu>
-					<ActionIcon slot="control" variant="transparent">
-						<IconMenu2 color="white" />
-					</ActionIcon>
-					<Menu.Item><a href="/done-list" style="color: black">Done List</a></Menu.Item>
-				</Menu>
+				<NavLinks />
 			</Container>
 		</Header>
 

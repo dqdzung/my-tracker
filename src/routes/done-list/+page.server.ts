@@ -1,10 +1,7 @@
 
-import { supabase } from "$lib/supabaseClient";
+import { getDoneList } from "../../controller/doneList";
 
 export async function load() {
-  const { data } = await supabase.from("list").select();
-
-  return {
-    list: data ?? [],
-  };
+  const data = await getDoneList();
+  return { list: data }
 }
