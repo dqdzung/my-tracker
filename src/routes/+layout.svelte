@@ -14,7 +14,7 @@
 	import en from 'javascript-time-ago/locale/en';
 	import { IconBrandGithubFilled, IconMenu2 } from '@tabler/icons-svelte';
 	import NavLinks from '$lib/navbar/navLinks.svelte';
-	import Navbar from '$lib/navbar/navBar.svelte';
+	import Navbar from '$lib/navbar/navbar.svelte';
 	import '../app.css';
 
 	TimeAgo.addLocale(en);
