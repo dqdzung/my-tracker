@@ -1,30 +1,17 @@
 <script lang="ts">
-	import {
-		Group,
-		Grid,
-		Tabs,
-		Center,
-		Image,
-		Stack,
-		Progress,
-		Card,
-		Text,
-		ActionIcon,
-		Tooltip,
-		Box
-	} from '@svelteuidev/core';
+	import { Group, Grid, Tabs } from '@svelteuidev/core';
 	import {
 		IconArrowBack,
-		IconChevronDown,
 		IconInfoCircleFilled,
 		IconPhoto,
-		IconSettings
+		IconSettings,
+		IconUser
 	} from '@tabler/icons-svelte';
 	import GameInfoLeft from '$lib/game/gameInfoLeft.svelte';
 	import GameInfoRight from '$lib/game/gameInfoRight.svelte';
-	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+	import GalleryTab from '$lib/game/galleryTab.svelte';
+	import UserStatTab from '$lib/game/userStatTab.svelte';
 	import '@splidejs/svelte-splide/css';
-	import { calculateCheevoCompletion } from './utils';
 
 	export let data: { appData: any; achievements: any; playerStats: any };
 
@@ -36,10 +23,6 @@
 		const { index } = e.detail;
 		activeTab = index;
 	};
-
-	$: cheevoCompletion = calculateCheevoCompletion(achievements);
-
-	console.log(achievements);
 </script>
 
 <div style="margin-bottom: 55px;">
@@ -84,26 +67,10 @@
 			label="User stats"
 			tabindex={0}
 			tabKey="userStat"
-			icon={IconInfoCircleFilled}
+			icon={IconUser}
 			override={{ color: 'white' }}
 		>
-			<Card shadow="sm" padding="lg" radius="md" override={{ background: ' black ' }}>
-				<h3 style="margin: 0 0 15px 0;">Achievements</h3>
-
-				<Text color="white" mb={10}>
-					You've unlocked {cheevoCompletion.achieved}/{achievements.length} ({cheevoCompletion.percentage}%)
-				</Text>
-
-				<Progress value={cheevoCompletion.percentage} size="xl" radius="xl" />
-
-				<Box mt={5} style="text-align: center">
-					<Tooltip label="View all achievements">
-						<ActionIcon variant="transparent">
-							<IconChevronDown color="white" />
-						</ActionIcon>
-					</Tooltip>
-				</Box>
-			</Card>
+			<UserStatTab data={achievements} />
 		</Tabs.Tab>
 
 		<Tabs.Tab
@@ -129,44 +96,7 @@
 		</Tabs.Tab>
 
 		<Tabs.Tab label="Gallery" tabindex={3} tabKey="gallery" icon={IconPhoto}>
-			<Stack spacing={20}>
-				<div>
-					<h4 style="margin: 10px 0;">Screenshots</h4>
-					<Splide
-						aria-label="screenshots"
-						options={{
-							gap: '10px',
-							height: 'auto',
-							perPage: 3,
-							perMove: 1,
-							drag: 'free',
-							snap: true
-						}}
-					>
-						{#each appData.screenshots as { path_full, id } (id)}
-							<SplideSlide>
-								<Image src={path_full} />
-							</SplideSlide>
-						{/each}
-					</Splide>
-				</div>
-
-				{#if appData.movies?.length}
-					<div>
-						<h4 style="margin: 10px 0;">Video</h4>
-						<Center>
-							<!-- svelte-ignore a11y-media-has-caption -->
-							<video
-								autoplay={activeTab === 2}
-								src={appData.movies?.[0]?.webm?.max}
-								height="auto"
-								width="100%"
-								controls
-							/>
-						</Center>
-					</div>
-				{/if}
-			</Stack>
+			<GalleryTab data={appData} isActive={activeTab === 2} />
 		</Tabs.Tab>
 	</Tabs>
 </div>

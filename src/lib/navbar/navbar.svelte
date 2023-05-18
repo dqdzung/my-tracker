@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Header, Container, Text } from '@svelteuidev/core';
 	import { HEADER_HEIGHT } from '../../constants';
-	import NavLinks from './navLinks.svelte';
 
 	let screenSize: number;
 </script>
