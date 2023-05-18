@@ -12,10 +12,19 @@
 	import GalleryTab from '$lib/game/galleryTab.svelte';
 	import UserStatTab from '$lib/game/userStatTab.svelte';
 	import '@splidejs/svelte-splide/css';
+	import type { AchievementItemModel } from '../../../models/achievementItem';
+	import type { GameDetail } from '../../../models/gameDetail';
+	import type { PlayerStat } from '../../../models/playerStat';
 
-	export let data: { appData: any; achievements: any; playerStats: any };
+	export let data: {
+		appData: GameDetail;
+		achievements: AchievementItemModel[];
+		playerStats: PlayerStat;
+	};
 
 	const { appData, achievements } = data;
+
+	console.log('dmm', data);
 
 	let activeTab = 0;
 

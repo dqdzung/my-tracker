@@ -2,10 +2,11 @@
 	import { Group } from '@svelteuidev/core';
 	import { IconBrandApple, IconBrandUbuntu, IconBrandWindows } from '@tabler/icons-svelte';
 	import TimeAgo from 'javascript-time-ago';
+	import type { GameDetail } from '../../models/gameDetail';
 
 	const timeAgo = new TimeAgo('en-US');
 
-	export let data: any; // GameDetail model
+	export let data: GameDetail;
 
 	const releaseDate = new Date(data['release_date']?.date || 0);
 	const comingSoon = data['release_date']['coming_soon'];

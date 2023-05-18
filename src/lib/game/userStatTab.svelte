@@ -3,9 +3,10 @@
 	import { calculateCheevoCompletion } from '../../routes/game/[appid]/utils';
 	import { IconChevronDown, IconChevronUp } from '@tabler/icons-svelte';
 	import { slide } from 'svelte/transition';
+	import type { AchievementItemModel } from '../../models/achievementItem';
 	import AchievementItem from './achievementItem.svelte';
 
-	export let data: any;
+	export let data: AchievementItemModel[];
 	let openCheevo = false;
 	let screenSize: number;
 	let showCardBack: number[] = [];
@@ -21,9 +22,11 @@
 	const onOpenCheevo = () => {
 		openCheevo = !openCheevo;
 	};
-	console.log('dmm', data);
 
 	$: cheevoCompletion = calculateCheevoCompletion(data);
+	$: {
+		if (!openCheevo) showCardBack = [];
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />

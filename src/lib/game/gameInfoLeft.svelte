@@ -3,8 +3,9 @@
 	import { IconBrandSteam, IconHome2 } from '@tabler/icons-svelte';
 	import { getStoreUrl } from '../../api/service-helper';
 	import GameInfoTable from './gameInfoTable.svelte';
+	import type { GameDetail } from '../../models/gameDetail';
 
-	export let data: any; // GameDetail model
+	export let data: GameDetail;
 </script>
 
 <Stack style="flex-grow: 1">

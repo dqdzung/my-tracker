@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { Stack, Group, Badge, SimpleGrid, Button, Center, Image } from '@svelteuidev/core';
 	import { IconThumbUp } from '@tabler/icons-svelte';
+	import type { GameDetail } from '../../models/gameDetail';
 
-	export let data: any; // GameDetail model
+	export let data: GameDetail;
 </script>
 
 <Stack>
