@@ -63,15 +63,17 @@
 			}
 		}}
 	>
-		<Tabs.Tab
-			label="User stats"
-			tabindex={0}
-			tabKey="userStat"
-			icon={IconUser}
-			override={{ color: 'white' }}
-		>
-			<UserStatTab data={achievements} />
-		</Tabs.Tab>
+		{#if achievements}
+			<Tabs.Tab
+				label="User stats"
+				tabindex={0}
+				tabKey="userStat"
+				icon={IconUser}
+				override={{ color: 'white' }}
+			>
+				<UserStatTab data={achievements} />
+			</Tabs.Tab>
+		{/if}
 
 		<Tabs.Tab
 			label="About"

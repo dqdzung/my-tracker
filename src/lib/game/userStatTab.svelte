@@ -16,8 +16,6 @@
 		} else {
 			showCardBack = [...showCardBack, index];
 		}
-
-		console.log(showCardBack);
 	};
 
 	const onOpenCheevo = () => {
