@@ -1,19 +1,10 @@
 <script lang="ts">
-	import {
-		ActionIcon,
-		Button,
-		Container,
-		Group,
-		Menu,
-		SvelteUIProvider,
-		Text
-	} from '@svelteuidev/core';
+	import { Container, Group, SvelteUIProvider } from '@svelteuidev/core';
 	import { AppShell } from '@svelteuidev/core';
 	import { PUBLIC_APP_NAME } from '$env/static/public';
 	import TimeAgo from 'javascript-time-ago';
 	import en from 'javascript-time-ago/locale/en';
-	import { IconBrandGithubFilled, IconMenu2 } from '@tabler/icons-svelte';
-	import NavLinks from '$lib/navbar/navLinks.svelte';
+	import { IconBrandGithubFilled } from '@tabler/icons-svelte';
 	import Navbar from '$lib/navbar/navbar.svelte';
 	import '../app.css';
 
