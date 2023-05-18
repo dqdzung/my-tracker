@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Header, Container, Text } from '@svelteuidev/core';
-	import { HEADER_HEIGHT } from '../../constants';
+	import { HEADER_HEIGHT } from '$constants';
 
 	let screenSize: number;
 </script>

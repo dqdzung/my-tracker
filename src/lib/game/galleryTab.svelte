@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import { Stack, Center, Image } from '@svelteuidev/core';
-	import type { GameDetail } from '../../models/gameDetail';
+	import type { GameDetail } from '$models/gameDetail';
 
 	export let data: GameDetail;
 	export let isActive: boolean;

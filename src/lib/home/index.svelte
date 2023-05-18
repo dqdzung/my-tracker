@@ -2,7 +2,7 @@
 	import { Stack, Group } from '@svelteuidev/core';
 	import { slide } from 'svelte/transition';
 	import ListItem from './listItem.svelte';
-	import type { ListOwned, ListRecentlyPlayed } from '../../models/game';
+	import type { ListOwned, ListRecentlyPlayed } from '$models/game';
 	import ChevronActionIcon from './chevronActionIcon.svelte';
 
 	export let data: {

@@ -1,7 +1,7 @@
 <script lang="ts">
+	import type { AchievementItemModel } from '$models/achievementItem';
 	import { Card, Group } from '@svelteuidev/core';
 	import { IconCheckbox } from '@tabler/icons-svelte';
-	import type { AchievementItemModel } from '../../models/achievementItem';
 
 	export let data: AchievementItemModel;
 	export let showCardBack: boolean;

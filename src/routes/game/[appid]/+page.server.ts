@@ -1,8 +1,8 @@
-import { PlayerService } from '../../../api/player-service';
-import { fetchData, getGameInfoUrl } from '../../../api/service-helper';
-import type { AchievementItemModel } from '../../../models/achievementItem';
-import type { GameDetail } from '../../../models/gameDetail';
-import type { PlayerStat } from '../../../models/playerStat';
+import { PlayerService } from '$api/player-service';
+import { fetchData, getGameInfoUrl } from '$api/service-helper';
+import type { AchievementItemModel } from '$models/achievementItem';
+import type { GameDetail } from '$models/gameDetail';
+import type { PlayerStat } from '$models/playerStat';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params }) => {

@@ -2,7 +2,7 @@
 	import { Group } from '@svelteuidev/core';
 	import { IconBrandApple, IconBrandUbuntu, IconBrandWindows } from '@tabler/icons-svelte';
 	import TimeAgo from 'javascript-time-ago';
-	import type { GameDetail } from '../../models/gameDetail';
+	import type { GameDetail } from '$models/gameDetail';
 
 	const timeAgo = new TimeAgo('en-US');
 

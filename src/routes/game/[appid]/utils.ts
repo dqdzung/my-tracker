@@ -1,4 +1,4 @@
-import type { AchievementItemModel } from "../../../models/achievementItem";
+import type { AchievementItemModel } from "$models/achievementItem";
 
 export const calculateCheevoCompletion = (listCheevo: AchievementItemModel[]) => {
   const achieved = listCheevo.filter(cheevo => cheevo.achieved === 1).length

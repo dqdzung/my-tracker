@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { ActionIcon, Box, Card, Progress, Stack, Text, Tooltip } from '@svelteuidev/core';
-	import { calculateCheevoCompletion } from '../../routes/game/[appid]/utils';
+	import { calculateCheevoCompletion } from '$routes/game/[appid]/utils';
 	import { IconChevronDown, IconChevronUp } from '@tabler/icons-svelte';
 	import { slide } from 'svelte/transition';
-	import type { AchievementItemModel } from '../../models/achievementItem';
+	import type { AchievementItemModel } from '$models/achievementItem';
 	import AchievementItem from './achievementItem.svelte';
 
 	export let data: AchievementItemModel[];
