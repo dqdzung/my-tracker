@@ -1,5 +1,8 @@
 import { PlayerService } from '../../../api/player-service';
 import { fetchData, getGameInfoUrl } from '../../../api/service-helper';
+import type { AchievementItemModel } from '../../../models/achievementItem';
+import type { GameDetail } from '../../../models/gameDetail';
+import type { PlayerStat } from '../../../models/playerStat';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params }) => {
@@ -15,6 +18,9 @@ export const load = (async ({ params }) => {
   const cheevoRes = res[1]?.status === 'fulfilled' ? res[1].value : null;
   const gameStatRes = res[2]?.status === 'fulfilled' ? res[2].value : null;
 
-
-  return { appData: infoRes[appId].data, achievements: cheevoRes?.playerstats?.achievements, playerStats: gameStatRes?.playerstats };
+  return {
+    appData: infoRes[appId].data as GameDetail,
+    achievements: cheevoRes?.playerstats?.achievements as AchievementItemModel[],
+    playerStats: gameStatRes?.playerstats as PlayerStat
+  };
 }) satisfies PageServerLoad;

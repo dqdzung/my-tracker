@@ -24,8 +24,6 @@
 
 	const { appData, achievements } = data;
 
-	console.log('dmm', data);
-
 	let activeTab = 0;
 
 	const onTabChange = (e: CustomEvent) => {
